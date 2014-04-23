@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :categories
+
   #get 'site/index'
 
   devise_for :users
