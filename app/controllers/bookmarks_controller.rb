@@ -28,7 +28,7 @@ class BookmarksController < ApplicationController
 
     @bookmark = Bookmark.new(bookmark_params)
     @bookmark.user_id=current_user.id
-    debugger
+    
     respond_to do |format|
       if @bookmark.save
         format.html { redirect_to @bookmark, notice: 'Bookmark was successfully created.' }

@@ -26,7 +26,8 @@ class CategoriesController < ApplicationController
   # POST /categories.json
   def create
     @category = Category.new(category_params)
-
+    @category.user_id=current_user.id
+    
     respond_to do |format|
       if @category.save
         format.html { redirect_to @category, notice: 'Categorie was successfully created.' }
@@ -67,7 +68,7 @@ class CategoriesController < ApplicationController
     def set_category
       # @category = Category.find(params[:id])
       unless @category = current_user.categories.where(id: params[:id]).first
-        flash[:alert] = 'Categorie not found.'
+        flash[:alert] = 'Category not found.'
         redirect_to root_url
       end
     end
