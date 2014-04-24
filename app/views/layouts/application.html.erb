@@ -41,7 +41,14 @@
                 <ul class="right">
                   <li class="divider"></li>
                   <% if current_user %>
-                    <li><%= link_to 'My Bookmarks', bookmarks_path %></li>
+                    <li class="has-dropdown"> 
+                      <%= link_to 'My Bookmarks', bookmarks_path %>
+                      <ul class="dropdown">                  
+                        <li></li>
+                        <li><%= link_to 'My Categories', categories_path %></li>
+                      </ul>
+                    </li>
+
                     <li class="divider"></li>
  
                     <li class="has-dropdown">
