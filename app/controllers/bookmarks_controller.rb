@@ -29,7 +29,6 @@ class BookmarksController < ApplicationController
   def create
 
     @bookmark = Bookmark.new(bookmark_params)
-    debugger
     @bookmark.user_id=current_user.id
     
     
