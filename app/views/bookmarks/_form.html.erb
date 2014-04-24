@@ -1,5 +1,6 @@
 <%= simple_form_for(@bookmark) do |f| %>
 	<%= f.error_notification %>
+	
 	<div class="form-inputs">
 		<%= f.collection_select :category_id, @category, :id, :title%>
 		<%= f.input :title %>

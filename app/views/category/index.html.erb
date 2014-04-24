@@ -10,13 +10,13 @@
   </thead>
 
   <tbody>
-    <% @categories.each do |category| %>
+    <% @category.each do |category| %>
       <tr>
         <td><%= category.title %></td>
         <td><%= category.description %></td>
         <td><%= link_to 'Show', category_path(category) %></td>
         <td><%= link_to 'Edit', edit_category_path(category) %></td>
-        <td><%= link_to 'Destroy', categories_path, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', category_path(category), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
