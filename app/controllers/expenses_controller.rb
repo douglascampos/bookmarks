@@ -1,4 +1,5 @@
 class ExpensesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_expense, only: [:show, :edit, :update, :destroy]
 
   # GET /expenses
@@ -24,7 +25,7 @@ class ExpensesController < ApplicationController
   # POST /expenses
   # POST /expenses.json
   def create
-    
+
     @expense = Expense.new(expense_params)
     @expense.user_id=current_user.id
 
