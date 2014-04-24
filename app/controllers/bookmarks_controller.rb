@@ -5,7 +5,8 @@ class BookmarksController < ApplicationController
   # GET /bookmarks
   # GET /bookmarks.json
   def index
-    @bookmarks = Bookmark.all
+    # @bookmarks = Bookmark.onlyUser(current_user.id)
+    @bookmarks = current_user.bookmarks
   end
 
   # GET /bookmarks/1
