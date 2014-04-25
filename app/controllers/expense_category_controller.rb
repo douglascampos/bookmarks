@@ -1,4 +1,5 @@
 class ExpenseCategoryController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_expense_category, only: [:show, :edit, :update, :destroy]
 
   # GET /expense_category
@@ -25,6 +26,7 @@ class ExpenseCategoryController < ApplicationController
   # POST /expense_category.json
   def create
     @expense_category = ExpenseCategory.new(expense_category_params)
+    @expense_category.user_id=current_user.id
 
     respond_to do |format|
       if @expense_category.save
@@ -64,7 +66,11 @@ class ExpenseCategoryController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_expense_category
-      @expense_category = ExpenseCategory.find(params[:id])
+      @expense_category = ExpenseCategory.where(:id => params[:id], :user_id => current_user.id).first
+      # unless @expense_category = current_user.expense_category.where(id: params[:id]).first
+      #   flash[:alert] = 'Expense not found.'
+      #   redirect_to root_url
+      # end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
