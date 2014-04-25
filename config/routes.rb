@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :expense_category
+
   resources :expenses
 
   resources :category
