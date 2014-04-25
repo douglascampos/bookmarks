@@ -6,7 +6,7 @@ class CategoryController < ApplicationController
   # GET /category.json
   def index
     ##########
-    @category = Category.all
+    @category = current_user.category
   end
 
   # GET /category/1
@@ -70,7 +70,7 @@ class CategoryController < ApplicationController
     def set_category
       # @category = Category.find(params[:id])
       #######
-      unless @category = current_user.categories.where(id: params[:id]).first
+      unless @category = current_user.category.where(id: params[:id]).first
         flash[:alert] = 'Category not found.'
         redirect_to root_url
       end

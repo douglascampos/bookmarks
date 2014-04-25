@@ -17,12 +17,12 @@ class BookmarksController < ApplicationController
   # GET /bookmarks/new
   def new
     @bookmark = Bookmark.new
-    @category =  current_user.categories.all
+    @category =  current_user.category.all
   end
 
   # GET /bookmarks/1/edit
   def edit
-    @category =  current_user.categories.all
+    @category =  current_user.category.all
   end
 
   # POST /bookmarks
