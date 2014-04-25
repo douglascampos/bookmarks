@@ -16,6 +16,7 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'debugger'
 gem 'devise'
 gem 'zurb-foundation', '~> 4.2.2'
+gem 'foundation_rails_helper'
 gem 'simple_form', '~> 3.0.0.rc'
 
 # Use jquery as the JavaScript library
