@@ -2,6 +2,7 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
+  	<%#= f.collection_select :expense_category_id, @expense_category, :id, :title%>
     <%= f.input :description %>
     <%= f.input :cost %>
   </div>

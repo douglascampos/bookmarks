@@ -66,11 +66,11 @@ class ExpenseCategoryController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_expense_category
-      @expense_category = ExpenseCategory.where(:id => params[:id], :user_id => current_user.id).first
-      # unless @expense_category = current_user.expense_category.where(id: params[:id]).first
-      #   flash[:alert] = 'Expense not found.'
-      #   redirect_to root_url
-      # end
+      # @expense_category = ExpenseCategory.where(:id => params[:id], :user_id => current_user.id).first
+      unless @expense_category = current_user.expense_category.where(id: params[:id]).first
+        flash[:alert] = 'Expense not found.'
+        redirect_to root_url
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
