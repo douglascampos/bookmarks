@@ -5,7 +5,7 @@ class ExpenseCategoryController < ApplicationController
   # GET /expense_category
   # GET /expense_category.json
   def index
-    @expense_category = ExpenseCategory.all
+    @expense_category = current_user.expense_category.all
   end
 
   # GET /expense_category/1

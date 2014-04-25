@@ -21,6 +21,7 @@ class ExpensesController < ApplicationController
 
   # GET /expenses/1/edit
   def edit
+    @category =  current_user.expense_category.all
   end
 
   # POST /expenses
@@ -77,6 +78,6 @@ class ExpensesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def expense_params
-      params.require(:expense).permit(:description, :cost)
+      params.require(:expense).permit(:description, :cost, :ExpenseCategory_id)
     end
 end
