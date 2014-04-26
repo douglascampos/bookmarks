@@ -1,31 +1,26 @@
 <h1>Listing Expenses</h1>
 <div width="100%" align='right'>
-  <table >
-    <tr>
-      <td align='right'>
-        <%= link_to 'Expenses Categories', expense_category_index_path %>
-      </td>
-    </tr>
-  </table>
+  <%= link_to 'Expenses Categories', expense_category_index_path, :class=>"button radius" %>
 </div>
 
-<table>
+<table width="100%">
   <thead>
     <tr>
       <th>Description</th>
       <th>Cost</th>
-      <th colspan="3"></th>
+      <th></th>
     </tr>
   </thead>
 
   <tbody>
     <% @expenses.each do |expense| %>
       <tr>
-        <td><%= expense.description %></td>
-        <td><%= expense.cost %></td>
-        <td><%= link_to 'Show', expense %></td>
-        <td><%= link_to 'Edit', edit_expense_path(expense) %></td>
-        <td><%= link_to 'Destroy', expense, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td width="70%"><%= expense.description %></td>
+        <td width="10%"><%= expense.cost %></td>
+        <td align="center">
+          <%= link_to 'Show', expense, :class=>"button tiny" %>
+          <%= link_to 'Edit', edit_expense_path(expense), :class=>"button tiny" %>
+          <%= link_to 'Destroy', expense, method: :delete, data: { confirm: 'Are you sure?' }, :class=>"button tiny alert" %></td>
       </tr>
     <% end %>
   </tbody>
@@ -33,4 +28,4 @@
 
 <br>
 
-<%= link_to 'New Expense', new_expense_path %>
+<%= link_to 'New Expense', new_expense_path,  :class=>"button radius" %>
