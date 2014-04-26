@@ -17,7 +17,7 @@
       <tr>
         <td width="70%"><%= expense.description %></td>
         <td width="10%"><%= expense.cost %></td>
-        <td align="center">
+        <td width="20%" align="center">
           <%= link_to 'Show', expense, :class=>"button tiny" %>
           <%= link_to 'Edit', edit_expense_path(expense), :class=>"button tiny" %>
           <%= link_to 'Destroy', expense, method: :delete, data: { confirm: 'Are you sure?' }, :class=>"button tiny alert" %></td>
@@ -28,4 +28,4 @@
 
 <br>
 
-<%= link_to 'New Expense', new_expense_path,  :class=>"button radius" %>
+<%= link_to 'New Expense', new_expense_path, :class=>"button radius" %>

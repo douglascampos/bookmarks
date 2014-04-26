@@ -1,35 +1,29 @@
 <h1>Listing Bookmarks</h1>
 
 <div width="100%" align='right'>
-  <table >
-    <tr>
-      <td align='right'>
-        <%= link_to 'Bookmark Categories', category_index_path %>
-      </td>
-    </tr>
-  </table>
+  <%= link_to 'Bookmark Categories', category_index_path, :class=>"button radius" %>
 </div>
 
 
-<table>
+<table width="100%">
   <thead>
     <tr>
       <th>Title</th>
       <th>Url</th>
-      <th>Id</th>
-      <th colspan="3"></th>
+      <th></th>
     </tr>
   </thead>
 
   <tbody>
     <% @bookmarks.each do |bookmark| %>
       <tr>
-        <td><%= bookmark.title %></td>
-        <td><%= bookmark.url %></td>
-        <td><%= bookmark.id %></td>
-        <td><%= link_to 'Show', bookmark %></td>
-        <td><%= link_to 'Edit', edit_bookmark_path(bookmark) %></td>
-        <td><%= link_to 'Destroy', bookmark, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td width="35%"><%= bookmark.title %></td>
+        <td width="45%"><%= bookmark.url %></td>
+        <td width="20%" align="center">
+          <%= link_to 'Show', bookmark, :class=>"button tiny" %>
+          <%= link_to 'Edit', edit_bookmark_path(bookmark), :class=>"button tiny" %>
+          <%= link_to 'Destroy', bookmark, method: :delete, data: { confirm: 'Are you sure?' }, :class=>"button tiny alert" %>
+        </td>
       </tr>
     <% end %>
   </tbody>
@@ -37,4 +31,4 @@
 
 <br>
 
-<%= link_to 'New Bookmark', new_bookmark_path %>
+<%= link_to 'New Bookmark', new_bookmark_path, :class=>"button radius" %>
