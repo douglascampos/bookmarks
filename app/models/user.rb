@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   has_many :passwords
   has_many :category
   has_many :expense_category
+  has_many :password_category
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 end
