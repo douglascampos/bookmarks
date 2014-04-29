@@ -7,6 +7,6 @@ class SiteController < ApplicationController
 
 		@bookmarks = current_user.bookmarks.order('created_at desc')
 
-		@expenses = current_user.expenses#.order('created_at desc')
+		@expenses = current_user.expenses
   end
 end

@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   has_many :bookmarks
   has_many :expenses
+  has_many :passwords
   has_many :category
   has_many :expense_category
   devise :database_authenticatable, :registerable,

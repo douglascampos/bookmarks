@@ -1,10 +1,11 @@
 class PasswordsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_password, only: [:show, :edit, :update, :destroy]
 
   # GET /passwords
   # GET /passwords.json
   def index
-    @passwords = Password.all
+    @passwords = current_user.passwords
   end
 
   # GET /passwords/1
@@ -25,6 +26,7 @@ class PasswordsController < ApplicationController
   # POST /passwords.json
   def create
     @password = Password.new(password_params)
+    @password.user_id=current_user.id
 
     respond_to do |format|
       if @password.save
@@ -64,7 +66,11 @@ class PasswordsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_password
-      @password = Password.find(params[:id])
+      # @password = Password.find(params[:id])
+      unless @password = current_user.passwords.where(id: params[:id]).first
+       flash[:alert] = 'Password not found.'
+       redirect_to root_url
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
