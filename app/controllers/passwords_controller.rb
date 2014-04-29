@@ -21,6 +21,7 @@ class PasswordsController < ApplicationController
 
   # GET /passwords/1/edit
   def edit
+     @category =  current_user.password_category.all
   end
 
   # POST /passwords
