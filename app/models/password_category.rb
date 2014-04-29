@@ -1,3 +1,4 @@
 class PasswordCategory < ActiveRecord::Base
-	belongs_to :password_category
+	belongs_to :user
+	has_many :passwords
 end

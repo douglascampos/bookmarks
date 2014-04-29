@@ -16,6 +16,7 @@ class PasswordsController < ApplicationController
   # GET /passwords/new
   def new
     @password = Password.new
+    @category =  current_user.password_category
   end
 
   # GET /passwords/1/edit
@@ -75,6 +76,6 @@ class PasswordsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def password_params
-      params.require(:password).permit(:login, :pass, :url, :obs)
+      params.require(:password).permit(:login, :pass, :url, :obs, :PasswordCategory_id)
     end
 end

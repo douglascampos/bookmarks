@@ -2,6 +2,7 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
+    <%= f.collection_select :PasswordCategory_id, @category, :id, :titulo, :selected => @password.PasswordCategory_id, :class=> "dropdown"%>
     <%= f.input :login %>
     <%= f.input :pass %>
     <%= f.input :url %>

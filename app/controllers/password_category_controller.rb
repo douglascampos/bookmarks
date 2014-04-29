@@ -26,6 +26,7 @@ class PasswordCategoryController < ApplicationController
   # POST /password_category.json
   def create
     @password_category = PasswordCategory.new(password_category_params)
+    @password_category.user_id = current_user.id
 
     respond_to do |format|
       if @password_category.save
