@@ -1,22 +1,24 @@
-<h1>Listing password_category</h1>
+<h1>Listing Password Category</h1>
 
-<table>
+<table width="100%">
   <thead>
     <tr>
       <th>Titulo</th>
       <th>Descricao</th>
-      <th colspan="3"></th>
+      <th></th>
     </tr>
   </thead>
 
   <tbody>
     <% @password_category.each do |password_category| %>
       <tr>
-        <td><%= password_category.titulo %></td>
-        <td><%= password_category.descricao %></td>
-        <td><%= link_to 'Show', password_category %></td>
-        <td><%= link_to 'Edit', edit_password_category_path(password_category) %></td>
-        <td><%= link_to 'Destroy', password_category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td width="20%"><%= password_category.titulo %></td>
+        <td width="60%"><%= password_category.descricao %></td>
+        <td width="20%" align="center">
+          <%= link_to 'Show', password_category, :class=>"button tiny" %>
+          <%= link_to 'Edit', edit_password_category_path(password_category), :class=>"button tiny" %>
+          <%= link_to 'Destroy', password_category, method: :delete, data: { confirm: 'Are you sure?' }, :class=>"button tiny alert"  %>
+        </td>
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +26,4 @@
 
 <br>
 
-<%= link_to 'New Password category', new_password_category_path %>
+<%= link_to 'New Password category', new_password_category_path, :class => "button radius" %>
