@@ -4,27 +4,29 @@
   <%= link_to 'Password Category', password_category_index_path, :class=>"button radius" %>
 </div>
 
-<table>
+<table width="100%">
   <thead>
     <tr>
       <th>Login</th>
       <th>Pass</th>
       <th>Url</th>
       <th>Obs</th>
-      <th colspan="3"></th>
+      <th></th>
     </tr>
   </thead>
 
   <tbody>
     <% @passwords.each do |password| %>
       <tr>
-        <td><%= password.login %></td>
-        <td><%= password.pass %></td>
-        <td><%= password.url %></td>
-        <td><%= password.obs %></td>
-        <td><%= link_to 'Show', password %></td>
-        <td><%= link_to 'Edit', edit_password_path(password) %></td>
-        <td><%= link_to 'Destroy', password, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td width="20%"><%= password.login %></td>
+        <td width="15%"><%= password.pass %></td>
+        <td width="20%"><%= password.url %></td>
+        <td width="20%"><%= password.obs %></td>
+        <td width="20" align="center">
+          <%= link_to 'Show', password, :class=>"button tiny" %>
+          <%= link_to 'Edit', edit_password_path(password), :class=>"button tiny" %>
+          <%= link_to 'Destroy', password, method: :delete, data: { confirm: 'Are you sure?' }, :class=>"button tiny alert" %>
+        </td>
       </tr>
     <% end %>
   </tbody>
@@ -32,4 +34,4 @@
 
 <br>
 
-<%= link_to 'New Password', new_password_path %>
+<%= link_to 'New Password', new_password_path, :class=>"button radius" %>
