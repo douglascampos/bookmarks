@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Titulo:</strong>
+  <%= @password_category.titulo %>
+</p>
+
+<p>
+  <strong>Descricao:</strong>
+  <%= @password_category.descricao %>
+</p>
+
+<%= link_to 'Edit', edit_password_category_path(@password_category) %> |
+<%= link_to 'Back', password_category_index_path %>

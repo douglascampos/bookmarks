@@ -1,0 +1,2 @@
+module PasswordCategoryHelper
+end

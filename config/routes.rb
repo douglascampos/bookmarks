@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :password_category
+
   resources :passwords
 
   resources :expense_category
